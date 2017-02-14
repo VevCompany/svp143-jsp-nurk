@@ -4,6 +4,13 @@ public class Student {
 	
 	public String name;
 	public String group;
+	
+	public Student() {}
+	public Student(String name, String group) {
+		this.name = name;
+		this.group = group;
+	}
+	
 	public String getName() {
 		return name;
 	}
