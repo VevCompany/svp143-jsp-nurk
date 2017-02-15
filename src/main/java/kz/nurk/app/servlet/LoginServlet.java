@@ -3,10 +3,13 @@ package kz.nurk.app.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import kz.nurk.model.User;
 
 /**
  * Servlet implementation class LoginServlet
@@ -30,33 +33,38 @@ public class LoginServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	private static final long serialVersionUID1 = 2116983427258983213L;
+	
+	private static final String PAGE_SUCCESS = "success";
+	private static final String PAGE_ERROR = "error";
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		try {
-			out.println("<html>");
-			out.println("<head>");
-			out.println("<title> </title>");
-			out.println("</head>");
-			out.println("<body>");
-			out.println("<p>Логин</p>");
-			out.println("<p>Пароль</p>");
-			out.println("<tr>");
-			out.println("<td>");
-			out.println("</td>");
-			out.println("<td>Group</td>");
-			out.println("</tr>");
-			out.println("<body>");
-			out.println("</html>");
-		}finally {
-			out.close();
+		request.setAttribute("title", "Welcome");
+		
+		String login = request.getParameter("login");
+		String password = request.getParameter("password");
+		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+		
+		if (login != null && password != null) {
+			
+			User user = new User(login, password);
+			if(user.authValidate()) {
+				rd = request.getRequestDispatcher("/jsp/success.jsp");
+				/*request.setAttribute("title", "Main page");
+				request.setAttribute("user", user);*/
+			}else {
+				request.setAttribute("error", "Invlid login OR page");
+				//rd = request.getRequestDispatcher(PAGE_ERROR);
+			}
 		}
 		
-		service(request, response);
+		rd.forward(request, response);
+		
+		//service(request, response);
 	}
 
 }
