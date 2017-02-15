@@ -1,4 +1,4 @@
-package kz.nurk.app;
+package kz.nurk.model;
 
 import java.util.ArrayList;
 

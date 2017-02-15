@@ -2,25 +2,22 @@ package kz.nurk.app.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kz.nurk.model.Student;
-
 /**
- * Servlet implementation class StudentServlet
+ * Servlet implementation class LoginServlet
  */
-public class StudentServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StudentServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,7 +35,6 @@ public class StudentServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//ArrayList<Students> list = StudentsList.getStudents();
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		try {
@@ -47,15 +43,12 @@ public class StudentServlet extends HttpServlet {
 			out.println("<title> </title>");
 			out.println("</head>");
 			out.println("<body>");
-			out.println("<h1>Список студентов</h1>");
-			
-			// ======
-			out.println("<table border='1'>");
+			out.println("<p>Логин</p>");
+			out.println("<p>Пароль</p>");
 			out.println("<tr>");
-				out.println("<td>");
-					//out.print(s.getName());
-				out.println("</td>");
-				out.println("<td>Group</td>");
+			out.println("<td>");
+			out.println("</td>");
+			out.println("<td>Group</td>");
 			out.println("</tr>");
 			out.println("<body>");
 			out.println("</html>");
