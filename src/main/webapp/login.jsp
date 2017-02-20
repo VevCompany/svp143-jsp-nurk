@@ -1,5 +1,6 @@
 <html>
 <head>
+<link rel="shortcut icon" href="static/images/logo.png" type="image/png">
 <title>Insert title here</title>
 </head>
 <body>

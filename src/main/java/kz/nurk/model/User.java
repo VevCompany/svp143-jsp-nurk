@@ -24,12 +24,12 @@ public class User {
 		this.password = password;
 	}
 	
-	public boolean authValidate() {
+	/*public boolean authValidate() {
 		
 		if("a".equalsIgnoreCase(this.login) && "pas".equalsIgnoreCase(this.password)) {
 			return true;
 		}
 		
 		return false;
-	}
+	}*/
 }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kz.nurk.model.Student;
+import kz.nurk.model.StudentDAO;
 
 /**
  * Servlet implementation class StudentServlet
@@ -37,31 +38,18 @@ public class StudentServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Method type = " + request.getMethod());
+		String name = ( request.getParameter("name") != null && !request.getParameter("name").isEmpty()) ? request.getParameter("name") : "";
+		boolean newStud = (request.getParameter("new") != null && !request.getParameter("new").isEmpty()) ? true : false;
+		System.out.println("Parameter name = " + name);
 		
-		//ArrayList<Students> list = StudentsList.getStudents();
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		try {
-			out.println("<html>");
-			out.println("<head>");
-			out.println("<title> </title>");
-			out.println("</head>");
-			out.println("<body>");
-			out.println("<h1>Список студентов</h1>");
-			
-			// ======
-			out.println("<table border='1'>");
-			out.println("<tr>");
-				out.println("<td>");
-					//out.print(s.getName());
-				out.println("</td>");
-				out.println("<td>Group</td>");
-			out.println("</tr>");
-			out.println("<body>");
-			out.println("</html>");
-		}finally {
-			out.close();
-		}
+		/*if(newStud) {
+			//newStudent();
+		}*/
+		
+		//ArrayList<Student> students = StudentDAO.getByName(name);
+		request.setAttribute("title", "");
+		
 		
 		service(request, response);
 	}

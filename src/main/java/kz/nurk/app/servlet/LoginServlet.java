@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID1 = 2116983427258983213L;
 	
 	private static final String PAGE_SUCCESS = "success";
-	private static final String PAGE_ERROR = "error";
+	//private static final String PAGE_ERROR = "error";
 	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -45,22 +45,22 @@ public class LoginServlet extends HttpServlet {
 		
 		request.setAttribute("title", "Welcome");
 		
-		String login = request.getParameter("login");
-		String password = request.getParameter("password");
+		//String login = request.getParameter("login");
+		//String password = request.getParameter("password");
 		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 		
-		if (login != null && password != null) {
+		/*if (login != null && password != null) {
 			
 			User user = new User(login, password);
 			if(user.authValidate()) {
 				rd = request.getRequestDispatcher("/jsp/success.jsp");
-				/*request.setAttribute("title", "Main page");
-				request.setAttribute("user", user);*/
+				//request.setAttribute("title", "Main page");
+				//request.setAttribute("user", user);
 			}else {
 				request.setAttribute("error", "Invlid login OR page");
 				//rd = request.getRequestDispatcher(PAGE_ERROR);
 			}
-		}
+		}*/
 		
 		rd.forward(request, response);
 		
