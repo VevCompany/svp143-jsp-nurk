@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 		
 		//String login = request.getParameter("login");
 		//String password = request.getParameter("password");
-		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/success.jsp");
 		
 		/*if (login != null && password != null) {
 			

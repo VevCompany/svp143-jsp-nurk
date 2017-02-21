@@ -27,13 +27,14 @@ public class StudentDAO {
     		
     		stmt = conn.createStatement();
     		
-    		String sql = "SELECT id, name FROM students";
+    		String sql = "SELECT id, name, age FROM students";
     		result = stmt.executeQuery(sql);
     		
     		while(result.next()) {
     			Long id = result.getLong("id");
     			String name = result.getString("name");
-    			list.add(new Student(id, name));
+    			Long age = result.getLong("age");
+    			list.add(new Student(id, name, age));
     		}
     		
     	}catch(ClassNotFoundException e) {

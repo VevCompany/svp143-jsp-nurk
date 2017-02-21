@@ -6,7 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
   
   <welcome-file-list>
-  	<welcome-file>LoginServlet</welcome-file>
+  	<welcome-file>StudentServlet</welcome-file>
   </welcome-file-list>
   
   <servlet>
@@ -20,7 +20,7 @@
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-name>StudentServlet</servlet-name>
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
   
